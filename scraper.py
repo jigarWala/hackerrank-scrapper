@@ -5,6 +5,8 @@ import logging
 import threading
 import requests
 from subprocess import call
+from ipdb import set_trace
+set_trace()
 
 logging.basicConfig(filename="logs.txt")
 TRACKS = ['sql']
