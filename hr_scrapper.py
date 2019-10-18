@@ -46,6 +46,8 @@ class HR_Scrapper:
                     print(code, file=open(file_path, 'w'))
         else:
             print(code, file=open(file_path, 'w'))
+            with open(os.path.join(path, file_path), 'w') as temp_file:
+                temp_file.write(buff)
 
     def get_submissions(self, chal_slug) -> None:
       submissions = self.urlService.get_submissions_request(chal_slug)
