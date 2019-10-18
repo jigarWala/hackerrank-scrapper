@@ -7,9 +7,8 @@ import requests
 from subprocess import call
 
 logging.basicConfig(filename="logs.txt")
-TRACKS = ['java', 'python', 'tutorials', 'algorithms', 'data-structures', 'mathematics', '10-days-of-statistics', 'c',
-          '10-days-of-javascript', 'sql']
-
+TRACKS = ['sql']
+#TRACKS = ['java', 'python', 'tutorials', 'algorithms', 'data-structures', 'sql']
 hr_scrap = HR_Scrapper()
 threads = []
 
