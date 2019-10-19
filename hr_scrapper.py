@@ -36,19 +36,17 @@ class HR_Scrapper:
                  ext = get_file_extension(track, lang)
                  self.create_code_file(track, sub_domain, chal_slug, code, ext)
 
-    def create_code_file(self, track, sub_domain, filename, code, ext ) -> None:
+     def create_code_file(self, track, sub_domain, filename, code, ext ) -> None:
         dir = os.path.join(BASE_DIR,self.PREFIX+track,sub_domain)
         file_path = os.path.join(dir,filename+ext)
-        os.makedirs(dir, exist_ok=True)
-        if not os.path.isfile(file_path):
-            print(code, file=open(file_path, 'w'))
-            with open(os.path.join(path, file_path), 'w') as temp_file:
-                temp_file.write(code)
-        else: #file exists so open in append mode
-            print(code, file=open(file_path, 'a'))
-            with open(os.path.join(path, file_path), 'a') as temp_file:
-                temp_file.write(code)
 
+        if not os.path.exists(dir): #os.path.isdir(dir):
+                os.makedirs(dir)
+                if not os.path.isfile(file_path):
+                    print(code, file=open(file_path, 'w'))
+        else:
+            print(code, file=open(file_path, 'w'))
+            
     def get_submissions(self, chal_slug) -> None:
       submissions = self.urlService.get_submissions_request(chal_slug)
       if submissions is None:
